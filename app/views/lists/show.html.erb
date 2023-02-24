@@ -1,0 +1,16 @@
+<h1> <%= @list.name %> </h1>
+
+<p><strong>Movies</strong></p>
+<div class="row">
+  <% @list.bookmarks.each do |bookmark| %>
+<ul class="list-group col-4">
+    <li class="list-group-item"><%=bookmark.movie.title%>
+    <li class="list-group-item"><%=bookmark.movie.overview%>
+    <li class="list-group-item"><%=bookmark.movie.rating.to_f%>
+    <li class="list-group-item"><img class="fit-picture" src="<%=bookmark.movie.poster_url%>">
+
+    <li class="list-group-item"><%= bookmark.comment%></li>
+</ul>
+  <% end %>
+</div>
+<%= link_to "Add a  movie", new_list_bookmark_path(@list)%>
